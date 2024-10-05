@@ -1,12 +1,70 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <title>Hello World!</title>
-    <link rel="stylesheet" href="index.css" />
+    <title>Reviews</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../assets/css/photon.css" />
+    <link rel="stylesheet" href="bootstrap.min.css" />
   </head>
+
   <body>
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
+    <!-- Wrap your entire app inside .window -->
+    <div class="window">
+      <header class="toolbar toolbar-header">
+        <h1 class="title title1">G - Review</h1>
+      </header>
+
+      <!-- Your app's content goes inside .window-content -->
+      <div class="window-content">
+        <div class="container mt-5">
+          <!-- Top Section - Form -->
+          <div class="row" id="formArea">
+            <div class="col">
+              <form id="urlForm" method="POST" action="/">
+                <div class="mb-3">
+                  <label for="urlInput" class="form-label">URL:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="urlInput"
+                    name="urlInput"
+                    placeholder="Enter URL"
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+
+          <div
+            class="alert alert-info text-center"
+            role="alert"
+            style="display: none"
+            id="loadingArea"
+          >
+            Working, please wait...
+          </div>
+
+          <!-- Bottom Section - JSON Display -->
+          <div class="row mt-5" id="jsonArea" style="display: none">
+            <div class="col">
+              <div class="card">
+                <div class="card-header">JSON Data</div>
+                <div class="card-body">
+                  <pre id="jsonData" class="mb-0"></pre>
+                </div>
+                <div class="card-footer">
+                  <button class="btn btn-secondary" id="copyButton">
+                    Copy JSON
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
   </body>
 </html>

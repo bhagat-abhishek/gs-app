@@ -1,7 +1,49 @@
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif;
-  margin: auto;
-  max-width: 38rem;
-  padding: 2rem;
+.title1 {
+  font-size: 20px;
+}
+
+.formArea {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form-group {
+  width: 100%;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-actions {
+  text-align: center;
+}
+
+.message-container {
+  display: flex;
+  justify-content: center;
+  /* horizontally center */
+  align-items: center;
+  /* vertically center */
+  height: 100vh;
+  /* full viewport height */
+}
+
+.message-container p {
+  text-align: center;
+  /* center the text */
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* optional: add a shadow */
 }

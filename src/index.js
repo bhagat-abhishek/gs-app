@@ -1,5 +1,6 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog } = require("electron");
 const path = require('node:path');
+const fetchReviews = require("./scrapper.js");
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -15,6 +16,18 @@ const createWindow = () => {
       preload: path.join(__dirname, 'preload.js'),
     },
   });
+
+
+  // Listening to IPC
+  ipcMain.on('fetchData', async (event, { urlInput }) => {
+    try {
+      data = await fetchReviews(urlInput);
+      event.reply('fetchDataResponse', data);
+    } catch (error) {
+      event.reply('fetchDataError', 'Something went wrong, please try again laterx', error.message);
+    }
+  });
+
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
